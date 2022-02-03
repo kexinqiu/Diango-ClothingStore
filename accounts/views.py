@@ -4,8 +4,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 # from accounts.forms import RegistrationForm, UserForm, UserProfileForm
 # from accounts.models import Account, UserProfile
 import requests
-from accounts.models import Account
-from accounts.forms import RegistrationForm, UserForm
+from .models import Account
+from .forms import RegistrationForm, UserForm
 #verification email
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string

@@ -1,11 +1,10 @@
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-# from accounts.forms import RegistrationForm, UserForm, UserProfileForm
-# from accounts.models import Account, UserProfile
+from accounts.forms import RegistrationForm, UserForm, UserProfileForm
+from accounts.models import Account, UserProfile
 import requests
-from .models import Account
-from .forms import RegistrationForm, UserForm
+
 #verification email
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
@@ -16,7 +15,7 @@ from django.contrib.auth.tokens import default_token_generator
 
 from carts.models import Cart, CartItem
 from carts.views import _cart_id
-# from orders.models import Order, OrderProduct
+from orders.models import Order, OrderProduct
 
 
 def register(request):

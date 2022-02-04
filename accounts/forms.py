@@ -2,8 +2,8 @@
 
 from django import forms
 from django.contrib import messages
-# from .models import Account, UserProfile
-from .models import Account
+from .models import Account, UserProfile
+
 
 class RegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={
@@ -52,18 +52,18 @@ class UserForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'form-control'
 
 
-# class UserProfileForm(forms.ModelForm):
-#     # 不显示当前photo的地址，名字
-#     # Profile Picture Currently: userprofile/Screen_Shot_2022-01-09_at_12.14.07_PM.png  Clear
-#     profile_picture = forms.ImageField(required=False, error_messages = {'invalid':("Image files only")}, widget=forms.FileInput)
+class UserProfileForm(forms.ModelForm):
+    # 不显示当前photo的地址，名字
+    # Profile Picture Currently: userprofile/Screen_Shot_2022-01-09_at_12.14.07_PM.png  Clear
+    profile_picture = forms.ImageField(required=False, error_messages = {'invalid':("Image files only")}, widget=forms.FileInput)
 
-#     class Meta:
-#         model = UserProfile
-#         fields = ['address_line_1', 'address_line_2', 'city', 'state', 'country', 'profile_picture']
+    class Meta:
+        model = UserProfile
+        fields = ['address_line_1', 'address_line_2', 'city', 'state', 'country', 'profile_picture']
 
-#     def __init__(self, *args, **kwargs):
-#         # modify what django provide
-#         super(UserProfileForm, self).__init__(*args, **kwargs)
-#         for field in self.fields:
-#             self.fields[field].widget.attrs['class'] = 'form-control'
+    def __init__(self, *args, **kwargs):
+        # modify what django provide
+        super(UserProfileForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
 

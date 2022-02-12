@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 
+
 from carts.models import CartItem
 from store.models import Product
 from .forms import OrderForm
@@ -136,7 +137,7 @@ def place_order(request, total=0, quantity=0):
                 'tax': tax,
                 'grand_total': grand_total,
             }
-
+            
             return render(request, 'orders/payments.html', context)
 
     else:
@@ -161,6 +162,7 @@ def order_complete(request):
             'payment': payment,
             'subtotal': subtotal,
         }
+        
         return render(request, 'orders/order_complete.html', context)
 
     except(Payment.DoesNotExist, Order.DoesNotExist):

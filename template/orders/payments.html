@@ -192,8 +192,8 @@
                             status : details.status,
                         }),
                     })
-                    .then(response => response.json())
-                    .then(data => {
+                    .then((response) => response.json())
+                    .then((data) => {
                         console.log('Success:', data);
                         console.log('Transaction Completed.');
                         window.location.href = redirect_url + '?order_number='+data.orderID+'&payment_id='+data.transID;

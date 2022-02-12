@@ -171,7 +171,7 @@
 
         // Finalize the transaction after payer approval
         onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) { <!--details-->
+          return actions.order.capture().then(function(details) { 
             // Successful capture! For dev/demo purposes:
               console.log(details);
               sendData();
